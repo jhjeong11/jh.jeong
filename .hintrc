@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+<<<<<<< HEAD
+    "highest-available-document-mode": "off"
+=======
+    "axe/language": [
+      "default",
+      {
+        "html-has-lang": "off"
+      }
+    ]
+>>>>>>> 017ce56 (github main commit)
+  }
+}
