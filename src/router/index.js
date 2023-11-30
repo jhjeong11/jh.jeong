@@ -8,8 +8,8 @@ const routes = [
         component: ListView
     },
     {
-        path: '/detail',
-        name: 'DetailView',
+        path: '/detail/:id',
+        name: 'detailView',
         component: DetailView
     },
 ];

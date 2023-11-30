@@ -1,24 +1,43 @@
 <template>
-  <div class="detail">
-    <h3>Detail View</h3>
-    <div class="detail-title">{{ $route.params.title }}</div>
+  <div class="detail" v-if="rowData">
+    <h3>
+      <div class="detail-name">{{ rowData.id }}. {{ rowData.name }}</div>
+      <div class="detail-title">제목 : {{ rowData.title }}</div>
+    </h3>
     <div>
-      <comment-form></comment-form>
-      <comment-list></comment-list>
+      <comment-form :rowData="rowData"></comment-form>
+      <comment-list :postId="rowData.id"></comment-list>
     </div>
   </div>
 </template>
 
 <script>
-import { store } from '@/store'
+import { post } from "@/store/index";
+
 import CommentForm from "@/store/CommentForm.vue";
 import CommentList from "@/store/CommentList.vue";
+// import { mapGetters } from "vuex";
 
 export default {
+  data() {
+    return {
+      rowData: null,
+    };
+  },
+  computed: {
+    // ...mapGetters(["getComments"]),
+  },
+  mounted() {
+    const id = this.$route.params.id;
+    console.log(id)
+    this.rowData = post.externalData.find((item) => item.id === id);
+    if (!this.rowData) {
+      console.error(`Object with id ${id} not found.`);
+    }
+  },
   components: { CommentForm, CommentList },
-  store,
 };
 </script>
 
-<style scoped>
+<style>
 </style>
