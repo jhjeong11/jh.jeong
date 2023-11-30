@@ -16,7 +16,6 @@ import { post } from "@/store/index";
 
 import CommentForm from "@/store/CommentForm.vue";
 import CommentList from "@/store/CommentList.vue";
-// import { mapGetters } from "vuex";
 
 export default {
   data() {
@@ -25,7 +24,6 @@ export default {
     };
   },
   computed: {
-    // ...mapGetters(["getComments"]),
   },
   mounted() {
     const id = this.$route.params.id;

@@ -13,7 +13,6 @@ export default {
   name: "TuiGrid",
   computed: {
     ...mapState(["posts"]),
-    // ...mapGetters(["totalPostCount"]),
     gridProps() {
       return {
         data: store.state.posts,
@@ -41,7 +40,6 @@ export default {
             name: "count",
             sortable: true,
             sortingType: 'desc',
-            formatter: ({ value }) => (value ? value.length : 0),
           },
         ],
         pageOptions: {
@@ -50,9 +48,6 @@ export default {
         },
       };
     },
-    // totalPostCount() {
-    //   return this.$store.postCount.length;
-    // },
   },
 
   mounted() {

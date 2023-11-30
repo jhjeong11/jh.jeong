@@ -17,10 +17,10 @@ export default {
   computed: {
     comments() {
       console.log();
-      return this.$store.getters.getComments(this.postId);
+      return this.$store.getters.getComments(this.postId).comments;
     },
     numberOfComments() {
-      return this.comments.length;
+      return this.$store.getters.getComments(this.postId).commentCount;
     },
   },
 };

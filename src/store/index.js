@@ -9,73 +9,73 @@ export const post = {
             id: '1',
             title: '안녕하세요',
             name: '정주희',
-            count: '',
+            comment: [],
         },
         {
             id: '2',
             title: '반갑습니다',
             name: '정주희',
-            count: '',
+            comment: [],
         },
         {
             id: '3',
             title: '주희입니다',
             name: '정주희',
-            count: '',
+            comment: [],
         },
         {
             id: '4',
             title: '안녕하세요',
             name: '정주희',
-            count: '',
+            comment: [],
         },
         {
             id: '5',
             title: '안녕하세요',
             name: '정주희',
-            count: '',
+            comment: [],
         },
         {
             id: '6',
             title: '안녕하세요',
             name: '정주희',
-            count: '',
+            comment: [],
         },
         {
             id: '7',
             title: '안녕하세요',
             name: '정주희',
-            count: '',
+            comment: [],
         },
         {
             id: '8',
             title: '안녕하세요',
             name: '정주희',
-            count: '',
+            comment: [],
         },
         {
             id: '9',
             title: '안녕하세요',
             name: '정주희',
-            count: '',
+            comment: [],
         },
         {
             id: '10',
             title: '안녕하세요',
             name: '정주희',
-            count: '',
+            comment: [],
         },
         {
             id: '11',
             title: '안녕하세요',
             name: '정주희',
-            count: '',
+            comment: [],
         },
         {
             id: '12',
             title: '안녕하세요',
             name: '정주희',
-            count: '',
+            comment: [],
         },
     ],
 };
@@ -98,6 +98,10 @@ export default new Vuex.Store({
                 text: comment.text,
             });
             console.log(postId)
+            const postIndex = state.posts.findIndex(post => post.id === postId);
+            if (postIndex !== -1) {
+                state.posts[postIndex].count = state.comments[postId].length;
+            }
         },
     },
     actions: {
@@ -107,7 +111,10 @@ export default new Vuex.Store({
     },
     getters: {
         getComments: (state) => (postId) => {
-            return state.comments[postId] || [];
+            return {
+                comments: state.comments[postId] || [],
+                commentCount: state.posts.find(post => post.id === postId)?.count || 0,
+            };
         },
     },
 });
