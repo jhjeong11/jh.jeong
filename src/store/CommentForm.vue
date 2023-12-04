@@ -20,8 +20,6 @@ export default {
     };
   },
 
-
-
   methods: {
     addComment() {
       const postId = this.$route.params.id;
