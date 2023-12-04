@@ -6,7 +6,7 @@
       id="commentInput"
       placeholder="댓글을 남겨주세요"
     />
-    <button class="btn_add" @click="addComment">등록</button>
+    <button @click="addComment">등록</button>
     <br />
     <br />
   </div>
@@ -19,9 +19,6 @@ export default {
       commentText: "",
     };
   },
-
-
-
   methods: {
     addComment() {
       const postId = this.$route.params.id;
@@ -39,13 +36,13 @@ export default {
 };
 </script>
 
-<style scopped>
+<style>
 input {
   width: 200px;
   height: 50px;
   font-size: 14px;
 }
-.btn_add {
+button {
   height: 56px;
   font-size: 14px;
 }
