@@ -19,6 +19,9 @@ export default {
       commentText: "",
     };
   },
+
+
+
   methods: {
     addComment() {
       const postId = this.$route.params.id;
